@@ -8,7 +8,8 @@
 ```
 .nojekyll
 index.html                 → /           Privacy & Support (ASC)
-app/index.html             → /app/       Marketing landing + JSON-LD
+app/index.html             → /app/       Marketing landing (screenshots, App Store badge)
+app/assets/                → /app/assets/ Optimized PNG/WebP images
 why-hard-streak/index.html → /why-hard-streak/
 vs-soft-habit-apps/index.html → /vs-soft-habit-apps/
 ```
