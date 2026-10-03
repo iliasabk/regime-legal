@@ -1,18 +1,28 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#090909">
+  <meta name="theme-color" content="#0E0E10">
   <meta name="color-scheme" content="dark">
-  <title>REGIME: Hard Streak Habit Tracker for Non-Negotiables</title>
-  <meta name="description" content="Stop rebuilding Monday. One checklist of non-negotiables. Miss a day and the streak dies. On-device, no account. Start 7-day trial on the App Store.">
+  <title>REGIME: Daily Habit Tracker — Never break the chain</title>
+  <meta name="description" content="REGIME is an iPhone habit tracker: one daily checklist, a streak that grows when you finish your day, 8 ranks to climb and a 7-day review. No account needed.">
   <meta name="robots" content="index,follow">
-  <link rel="canonical" href="https://regime.is-a.dev/">
-  <meta property="og:title" content="REGIME: Hard Streak Habit Tracker for Non-Negotiables">
-  <meta property="og:description" content="Hard streak. Non-negotiables only. Ranks earned. On your device. START 7-DAY TRIAL.">
+  <link rel="canonical" href="https://iliasabk.github.io/regime-legal/app/">
+  <meta name="apple-itunes-app" content="app-id=6805791943">
+  <meta property="og:title" content="REGIME: Daily Habit Tracker">
+  <meta property="og:description" content="Never break the chain. Daily non-negotiables, hard streak, eight ranks, weekly review. On your iPhone.">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://regime.is-a.dev/">
+  <meta property="og:url" content="https://iliasabk.github.io/regime-legal/app/">
+  <meta property="og:image" content="https://iliasabk.github.io/regime-legal/app/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="REGIME: Daily Habit Tracker">
+  <meta name="twitter:description" content="Never break the chain. One checklist, hard streak, 8 ranks, weekly review.">
+  <meta name="twitter:image" content="https://iliasabk.github.io/regime-legal/app/assets/og-image.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -75,251 +85,270 @@
   ],
   "screenshot": [],
   "isAccessibleForFree": false,
-  "countriesSupported": "US",
-  "_comment_aggregateRating": "OMIT while App Store ratings count is 0. Do not invent.",
-  "_comment_privacyPolicy": "Add privacyPolicy URL after GitHub Pages publish kills 404 at https://iliasabk.github.io/regime-legal/",
-  "_comment_softwareVersion": "Public store showed 1.1.0 IRON as of 2026-09-17; bump when live version changes."
+  "countriesSupported": "US"
 }
   </script>
   <style>
     :root {
       color-scheme: dark;
-      --bg: #090909;
-      --panel: #111112;
-      --panel-strong: #171719;
-      --ink: #f5f2ee;
-      --muted: #a8a3a0;
-      --dim: #716c69;
-      --line: #292727;
-      --red: #e3272e;
-      --red-dark: #a9151b;
-      --max: 70rem;
+      --bg: #0e0e10;
+      --bg-elevated: #141416;
+      --ink: #f5f5f5;
+      --muted: #a8a8ad;
+      --dim: #6e6e73;
+      --line: #2a2a2e;
+      --accent: #e3272e;
+      --max: 72rem;
     }
-    * { box-sizing: border-box; }
+    *, *::before, *::after { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
       margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Helvetica, Arial, sans-serif;
       background: var(--bg);
       color: var(--ink);
-      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      line-height: 1.55;
+      line-height: 1.5;
       -webkit-font-smoothing: antialiased;
     }
-    a { color: var(--ink); text-underline-offset: .2em; }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: var(--ink); text-underline-offset: 0.18em; }
     a:hover { color: #fff; }
-    .skip { position: absolute; left: -999px; top: auto; }
-    .skip:focus { left: 1rem; top: 1rem; z-index: 3; padding: .7rem 1rem; background: var(--red); color: #fff; }
-    .wrap { width: min(calc(100% - 2.5rem), var(--max)); margin-inline: auto; }
-    .site-header { border-bottom: 1px solid var(--line); }
-    .nav { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 4.5rem; }
-    .brand { color: var(--ink); font-size: .9rem; font-weight: 900; letter-spacing: .18em; text-decoration: none; }
-    .nav-links { display: flex; gap: 1rem; font-size: .78rem; }
-    .nav-links a { color: var(--muted); text-decoration: none; }
-    .nav-links a:hover { color: var(--ink); }
-    .hero { position: relative; overflow: hidden; padding: 5.5rem 0 5rem; border-bottom: 1px solid var(--line); }
-    .hero:after { content: ""; position: absolute; width: 30rem; height: 30rem; right: -16rem; top: -11rem; border: 1px solid rgba(227,39,46,.28); border-radius: 50%; box-shadow: 0 0 0 4rem rgba(227,39,46,.04), 0 0 0 8rem rgba(227,39,46,.025); pointer-events: none; }
-    .eyebrow { margin: 0 0 1.1rem; color: var(--red); font-size: .75rem; font-weight: 800; letter-spacing: .16em; text-transform: uppercase; }
-    h1, h2, h3 { margin: 0; line-height: 1.05; letter-spacing: -.035em; }
-    h1 { max-width: 11ch; font-size: clamp(3rem, 11vw, 7.4rem); text-transform: uppercase; }
-    h2 { font-size: clamp(2rem, 5vw, 3.7rem); text-transform: uppercase; }
-    h3 { font-size: 1.05rem; text-transform: uppercase; letter-spacing: .03em; }
-    .hero-copy { max-width: 42rem; margin-top: 1.8rem; color: var(--muted); font-size: clamp(1.05rem, 2.5vw, 1.35rem); }
-    .hero-copy strong { color: var(--ink); }
-    .cta-row { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; margin-top: 2rem; }
-    .cta { display: inline-flex; align-items: center; justify-content: center; min-height: 3.25rem; padding: .85rem 1.2rem; background: var(--red); color: #fff; font-size: .82rem; font-weight: 900; letter-spacing: .08em; text-decoration: none; text-transform: uppercase; box-shadow: 5px 5px 0 var(--red-dark); transition: transform .15s ease, box-shadow .15s ease, background .15s ease; }
-    .cta:hover { background: #f02a31; color: #fff; transform: translate(2px, 2px); box-shadow: 3px 3px 0 var(--red-dark); }
-    .micro { max-width: 31rem; color: var(--dim); font-size: .86rem; }
-    .entity { margin-top: 2.8rem; color: var(--dim); font-size: .78rem; letter-spacing: .04em; text-transform: uppercase; }
-    .entity strong { color: var(--muted); }
-    .section { padding: 5.5rem 0; border-bottom: 1px solid var(--line); }
-    .section-head { display: grid; gap: 1rem; margin-bottom: 2.5rem; }
-    .section-head p { max-width: 42rem; margin: 0; color: var(--muted); font-size: 1.08rem; }
-    .kicker { color: var(--red); font-size: .75rem; font-weight: 900; letter-spacing: .16em; text-transform: uppercase; }
-    .hard-copy { max-width: 52rem; color: var(--muted); font-size: 1.08rem; }
-    .hard-copy strong { color: var(--ink); }
-    .fail-list { display: grid; gap: .75rem; margin: 2rem 0; padding: 0; list-style: none; }
-    .fail-list li { padding: 1.1rem 1.2rem; border-left: 3px solid var(--red); background: var(--panel); color: var(--ink); }
-    .fail-list li strong { display: block; margin-bottom: .2rem; color: var(--red); font-size: .78rem; letter-spacing: .1em; text-transform: uppercase; }
-    .feature-grid { display: grid; grid-template-columns: 1fr; gap: 1px; background: var(--line); border: 1px solid var(--line); }
-    .feature { min-height: 13rem; padding: 1.4rem; background: var(--panel); }
-    .feature-number { display: block; margin-bottom: 2.7rem; color: var(--red); font-size: .8rem; font-weight: 900; letter-spacing: .1em; }
-    .feature p { margin: .65rem 0 0; color: var(--muted); font-size: .92rem; }
-    .privacy-grid { display: grid; grid-template-columns: 1fr; gap: 2rem; align-items: start; }
-    .privacy-note { padding: 1.5rem; border: 1px solid var(--line); background: var(--panel); }
-    .privacy-note p { margin: 0; color: var(--muted); }
-    .privacy-note strong { color: var(--ink); }
-    .price-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; margin: 2rem 0; }
-    .price { padding: 1.4rem; border: 1px solid var(--line); background: var(--panel); }
-    .price-name { color: var(--muted); font-size: .8rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
-    .price-value { display: block; margin: .35rem 0 .5rem; font-size: 2rem; font-weight: 800; }
-    .price p { margin: 0; color: var(--muted); font-size: .88rem; }
-    .price.featured { border-color: var(--red); }
-    .price.featured .price-name { color: var(--red); }
-    .faq { display: grid; grid-template-columns: 1fr; gap: 1rem; }
-    .faq details { padding: 1.1rem 1.2rem; border: 1px solid var(--line); background: var(--panel); }
-    .faq summary { cursor: pointer; font-weight: 800; }
-    .faq p { margin: .8rem 0 0; color: var(--muted); }
-    .final { padding: 5.5rem 0 6.5rem; text-align: center; background: radial-gradient(circle at 50% 20%, rgba(227,39,46,.12), transparent 38%); }
-    .final h2 { max-width: 12ch; margin-inline: auto; }
-    .final .micro { margin: 1.3rem auto 0; }
-    footer { padding: 2rem 0 3rem; color: var(--dim); font-size: .8rem; }
-    footer p { margin: .5rem 0; }
-    footer a { color: var(--muted); }
-    @media (min-width: 650px) { .feature-grid { grid-template-columns: repeat(2, 1fr); } .feature:last-child { grid-column: 1 / -1; } }
-    @media (min-width: 900px) { .feature-grid { grid-template-columns: repeat(5, 1fr); } .feature:last-child { grid-column: auto; } .privacy-grid { grid-template-columns: 1.1fr .9fr; } .price-grid { grid-template-columns: repeat(3, 1fr); } .faq { grid-template-columns: 1fr 1fr; } }
-    @media (max-width: 650px) {
-      .wrap { width: min(calc(100% - 2rem), var(--max)); }
-      .nav { min-height: 4rem; }
-      .nav-links { gap: .7rem; }
-      .nav-links a:nth-child(n+3) { display: none; }
-      .hero { padding: 4rem 0 3.75rem; }
-      h1 { font-size: clamp(2.8rem, 16vw, 5rem); }
-      .section { padding: 4rem 0; }
-      .feature { min-height: auto; }
-      .feature-number { margin-bottom: 1.4rem; }
-      .cta { width: 100%; }
-      .cta-row { align-items: stretch; }
+    .wrap { width: min(calc(100% - 2rem), var(--max)); margin-inline: auto; }
+    .skip { position: absolute; left: -9999px; top: auto; }
+    .skip:focus { left: 1rem; top: 1rem; z-index: 9; padding: 0.65rem 1rem; background: var(--accent); color: #fff; text-decoration: none; }
+
+    .hero {
+      padding: 3rem 0 4rem;
+      text-align: center;
+      border-bottom: 1px solid var(--line);
+      background: radial-gradient(ellipse 80% 60% at 50% -10%, rgba(227, 39, 46, 0.12), transparent 55%);
     }
-    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *:before, *:after { transition: none !important; } }
+    .hero-icon {
+      width: 88px;
+      height: 88px;
+      margin: 0 auto 1.25rem;
+      border-radius: 22%;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+    }
+    .hero-name {
+      margin: 0;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .hero h1 {
+      margin: 0.5rem 0 0;
+      font-size: clamp(2rem, 8vw, 3.25rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.08;
+    }
+    .hero-sub {
+      margin: 1rem auto 0;
+      max-width: 22rem;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+    .store-link {
+      display: inline-block;
+      margin-top: 1.75rem;
+      line-height: 0;
+    }
+    .store-link img { width: auto; height: 44px; }
+    .store-link:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; border-radius: 6px; }
+    .hero-note {
+      margin: 1.25rem auto 0;
+      max-width: 28rem;
+      font-size: 0.85rem;
+      color: var(--dim);
+    }
+
+    .feature {
+      display: grid;
+      gap: 2rem;
+      align-items: center;
+      padding: 3.5rem 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .feature:nth-child(even) .feature-copy { order: 2; }
+    .feature:nth-child(even) .feature-shot { order: 1; }
+    .feature-kicker {
+      margin: 0 0 0.35rem;
+      color: var(--accent);
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+    .feature h2 {
+      margin: 0;
+      font-size: clamp(1.65rem, 5vw, 2.25rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.12;
+    }
+    .feature p {
+      margin: 0.85rem 0 0;
+      color: var(--muted);
+      font-size: 1.02rem;
+      max-width: 34rem;
+    }
+    .phone-frame {
+      margin: 0 auto;
+      max-width: 280px;
+      border-radius: 2rem;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: var(--bg-elevated);
+      box-shadow: 0 24px 48px rgba(0, 0, 0, 0.35);
+    }
+    .phone-frame picture,
+    .phone-frame img { width: 100%; }
+
+    .pricing {
+      padding: 3.5rem 0;
+      text-align: center;
+      border-bottom: 1px solid var(--line);
+    }
+    .pricing h2 {
+      margin: 0;
+      font-size: 1.35rem;
+      font-weight: 700;
+    }
+    .pricing p {
+      margin: 0.75rem auto 0;
+      max-width: 36rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    footer {
+      padding: 2.5rem 0 3rem;
+      font-size: 0.88rem;
+      color: var(--dim);
+      text-align: center;
+    }
+    footer nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.35rem 1rem;
+      margin-bottom: 1rem;
+    }
+    footer nav a { color: var(--muted); text-decoration: none; }
+    footer nav a:hover { color: var(--ink); text-decoration: underline; }
+    footer p { margin: 0.35rem 0; }
+    .fazier-badge{margin-top:1rem}
+    .fazier-badge img{margin:0 auto;opacity:.85}
+
+    @media (min-width: 768px) {
+      .hero { padding: 4.5rem 0 5rem; }
+      .hero-icon { width: 104px; height: 104px; }
+      .store-link svg { height: 50px; }
+      .feature {
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        padding: 4.5rem 0;
+      }
+      .feature:nth-child(even) .feature-copy { order: unset; }
+      .feature:nth-child(even) .feature-shot { order: unset; }
+      .phone-frame { max-width: 300px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+    }
   </style>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
-  <header class="site-header">
-    <div class="wrap nav">
-      <a class="brand" href="./">REGIME</a>
-      <nav class="nav-links" aria-label="Primary navigation">
-        <a href="#rule">The rule</a>
-        <a href="#system">The system</a>
-        <a href="../why-hard-streak/">Why hard streak</a>
-        <a href="../vs-soft-habit-apps/">vs soft apps</a>
-      </nav>
+
+  <header class="hero">
+    <div class="wrap">
+      <picture>
+        <source type="image/webp" srcset="assets/icon-192.webp">
+        <img class="hero-icon" src="assets/icon-192.png" width="192" height="192" alt="REGIME app icon">
+      </picture>
+      <p class="hero-name">REGIME</p>
+      <h1>Never break the chain.</h1>
+      <p class="hero-sub">Daily habit checklist with streaks, 8 ranks &amp; weekly review.</p>
+      <a class="store-link" href="https://apps.apple.com/us/app/regime-daily-habit-tracker/id6805791943?pt=94745319&amp;ct=landing&amp;mt=8">
+        <img src="assets/app-store-badge.svg" width="120" height="40" alt="Download on the App Store">
+      </a>
+      <p class="hero-note">Free download with in-app purchases. 7-day free trial on the yearly plan ($29.99/yr).</p>
     </div>
   </header>
 
   <main id="main">
-    <section class="hero">
-      <div class="wrap">
-        <p class="eyebrow">Daily habit tracker · iOS</p>
-        <h1>Stop rebuilding Monday.</h1>
-        <p class="hero-copy"><strong>Keep one list of non-negotiables.</strong> Miss a day and the streak dies. Ranks earned, never given. On your device. No account. No feed. Hard on purpose.</p>
-        <div class="cta-row">
-          <a class="cta" href="https://apps.apple.com/us/app/regime-daily-habit-tracker/id6805791943?pt=94745319&amp;ct=landing&amp;mt=8">DOWNLOAD ON THE APP STORE</a>
-        </div>
-        <p class="micro">Free download with in-app purchases. 7-day free trial on the yearly plan ($29.99/yr). Cancel in Apple settings. Subscription or lifetime required after onboarding.</p>
-        <p class="entity"><strong>REGIME: Daily Habit Tracker</strong> · Seller Ilias Aberkane · App Store id 6805791943</p>
+    <section class="feature" aria-labelledby="f1-title">
+      <div class="feature-copy wrap">
+        <p class="feature-kicker">01</p>
+        <h2 id="f1-title">Never break the chain</h2>
+        <p>Your daily non-negotiables, one list. Finish the day to grow your streak; miss a day and the streak resets — start again today.</p>
       </div>
-    </section>
-
-    <section class="section" id="rule">
-      <div class="wrap">
-        <div class="section-head">
-          <span class="kicker">01 / The rule</span>
-          <h2>Soft apps taught you to negotiate. REGIME does not.</h2>
-        </div>
-        <div class="hard-copy">
-          <p>You rewrote the week in Notes every Monday. Gym. Deep work. Phone out of bed. By Wednesday half of it was gone, so you rebuilt the list again like that was the work.</p>
-          <p><strong>The rule here: one short checklist of non-negotiables.</strong> Close the list and the day is done. Miss a day and the streak dies. Start again today.</p>
-        </div>
-        <ul class="fail-list">
-          <li><strong>Too much to clear</strong>Twelve habits. Cosplay. A bad day kills the plan.</li>
-          <li><strong>Too easy to bargain</strong>Freeze tokens and streak forgiveness teach you to negotiate every skip.</li>
-          <li><strong>Too much performance</strong>A feed makes you perform instead of finishing.</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="section" id="system">
-      <div class="wrap">
-        <div class="section-head">
-          <span class="kicker">02 / The system</span>
-          <h2>One checklist. Visible proof.</h2>
-          <p>Build a daily plan you can clear on a bad day. Finish it. Let the record tell the truth.</p>
-        </div>
-        <div class="feature-grid">
-          <article class="feature"><span class="feature-number">01</span><h3>Make your daily plan</h3><p>Choose habits you can clear on a bad day. Add your own. Turn off what does not fit.</p></article>
-          <article class="feature"><span class="feature-number">02</span><h3>See your next step</h3><p>Find an unfinished habit. Mark it complete only when you have done it.</p></article>
-          <article class="feature"><span class="feature-number">03</span><h3>Track consistency</h3><p>Complete the checklist to grow the streak and move through eight ranks. A missed day resets the streak.</p></article>
-          <article class="feature"><span class="feature-number">04</span><h3>Review your week</h3><p>See recorded check-ins over the last seven days. Use your own history. Not a social scoreboard.</p></article>
-          <article class="feature"><span class="feature-number">05</span><h3>Reminders, not a feed</h3><p>Optional morning and evening reminders. Share a completed-day milestone only when you want to.</p></article>
+      <div class="feature-shot wrap">
+        <div class="phone-frame">
+          <picture>
+            <source type="image/webp" srcset="assets/screenshot-01-chain.webp 390w, assets/screenshot-01-chain@2x.webp 780w" sizes="280px">
+            <img src="assets/screenshot-01-chain.png" srcset="assets/screenshot-01-chain.png 390w, assets/screenshot-01-chain@2x.png 780w" sizes="280px" width="390" height="847" alt="REGIME Today view with streak counter and daily checklist" loading="lazy" decoding="async">
+          </picture>
         </div>
       </div>
     </section>
 
-    <section class="section">
-      <div class="wrap">
-        <div class="privacy-grid">
-          <div class="section-head">
-            <span class="kicker">03 / Private by default</span>
-            <h2>On-device. No account required.</h2>
-          </div>
-          <div class="privacy-note">
-            <p>Your habit entries stay on your device. REGIME does not require an account or its own cloud service. No REGIME network to perform for.</p>
-            <p style="margin-top:1rem"><a href="../">Privacy and support</a> stay at the site root.</p>
-          </div>
+    <section class="feature" aria-labelledby="f2-title">
+      <div class="feature-copy wrap">
+        <p class="feature-kicker">02</p>
+        <h2 id="f2-title">8 ranks. Earned.</h2>
+        <p>Climb through consistency alone. Eight ranks reflect how long you keep showing up — not shortcuts, not purchases.</p>
+      </div>
+      <div class="feature-shot wrap">
+        <div class="phone-frame">
+          <picture>
+            <source type="image/webp" srcset="assets/screenshot-02-progress.webp 390w, assets/screenshot-02-progress@2x.webp 780w" sizes="280px">
+            <img src="assets/screenshot-02-progress.png" srcset="assets/screenshot-02-progress.png 390w, assets/screenshot-02-progress@2x.png 780w" sizes="280px" width="390" height="847" alt="REGIME rank ladder with eight earned ranks" loading="lazy" decoding="async">
+          </picture>
         </div>
       </div>
     </section>
 
-    <section class="section">
-      <div class="wrap">
-        <div class="section-head">
-          <span class="kicker">04 / Honest access</span>
-          <h2>Paid access is the product.</h2>
-          <p>After onboarding, habit tracking needs a subscription or lifetime unlock. Downloading does not unlock the core loop. That is honest, not a bait-and-switch.</p>
-        </div>
-        <div class="price-grid" aria-label="Purchase options">
-          <div class="price"><span class="price-name">Weekly</span><span class="price-value">$4.99</span><p>Subscription</p></div>
-          <div class="price featured"><span class="price-name">Yearly</span><span class="price-value">$29.99</span><p>Includes a free trial when Apple shows an eligible introductory offer.</p></div>
-          <div class="price"><span class="price-name">Lifetime</span><span class="price-value">$49.99</span><p>One-time purchase</p></div>
-        </div>
-        <p class="micro">Apple shows price, billing period, and any eligible introductory offer before you confirm. Subscriptions renew unless canceled in Apple Account settings.</p>
+    <section class="feature" aria-labelledby="f3-title">
+      <div class="feature-copy wrap">
+        <p class="feature-kicker">03</p>
+        <h2 id="f3-title">Review your week</h2>
+        <p>See what slipped. Fix it next week. A seven-day grid of your check-ins — your history, not a social scoreboard.</p>
       </div>
-    </section>
-
-    <section class="section">
-      <div class="wrap">
-        <div class="section-head">
-          <span class="kicker">05 / No negotiation</span>
-          <h2>For people done negotiating skips.</h2>
-        </div>
-        <div class="hard-copy">
-          <p>If you want forgiveness tokens or a motivation feed, this is the wrong app. If you want a binding daily standard and a streak that dies when you miss, start the trial.</p>
-        </div>
-        <div class="cta-row"><a class="cta" href="https://apps.apple.com/us/app/regime-daily-habit-tracker/id6805791943?pt=94745319&amp;ct=landing&amp;mt=8">DOWNLOAD ON THE APP STORE</a></div>
-        <p class="micro">Free download with in-app purchases. 7-day free trial on the yearly plan ($29.99/yr).</p>
-      </div>
-    </section>
-
-    <section class="section" id="faq">
-      <div class="wrap">
-        <div class="section-head"><span class="kicker">Answers</span><h2>Read the rule.</h2></div>
-        <div class="faq">
-          <details><summary>What happens if I miss a day?</summary><p>The streak resets. You can start again today.</p></details>
-          <details><summary>Is there a free trial?</summary><p>Free download with in-app purchases. 7-day free trial on the yearly plan ($29.99/yr). Cancel in Apple settings. There is no 3-day trial.</p></details>
-          <details><summary>Do I need an account?</summary><p>No. On-device. No feed.</p></details>
-          <details><summary>Is the core loop free forever?</summary><p>No. Subscription or lifetime required after onboarding. Live prices are on the App Store.</p></details>
-          <details><summary>Why no star ratings on this page?</summary><p>Ratings are 0 on the App Store. We do not invent social proof.</p></details>
-          <details><summary>Where is support?</summary><p>See <a href="../">Privacy and support</a> or email the developer listed there.</p></details>
+      <div class="feature-shot wrap">
+        <div class="phone-frame">
+          <picture>
+            <source type="image/webp" srcset="assets/screenshot-04-day-complete.webp 390w, assets/screenshot-04-day-complete@2x.webp 780w" sizes="280px">
+            <img src="assets/screenshot-04-day-complete.png" srcset="assets/screenshot-04-day-complete.png 390w, assets/screenshot-04-day-complete@2x.png 780w" sizes="280px" width="390" height="847" alt="REGIME weekly review with seven-day habit grid" loading="lazy" decoding="async">
+          </picture>
         </div>
       </div>
     </section>
 
-    <section class="final">
-      <div class="wrap">
-        <p class="eyebrow">No reset button for the rule</p>
-        <h2>Run the regime.</h2>
-        <div class="cta-row" style="justify-content:center"><a class="cta" href="https://apps.apple.com/us/app/regime-daily-habit-tracker/id6805791943?pt=94745319&amp;ct=landing&amp;mt=8">DOWNLOAD ON THE APP STORE</a></div>
-        <p class="micro">Free download with in-app purchases. 7-day free trial on the yearly plan ($29.99/yr). Cancel anytime in Apple settings.</p>
-      </div>
+    <section class="pricing wrap" aria-labelledby="pricing-title">
+      <h2 id="pricing-title">Built for iPhone &amp; iPad</h2>
+      <p>Stop rebuilding your routine every Monday. Pick habits, add your own, optional reminders — no account, no feed. Habit entries stay on your device. Subscription or lifetime purchase unlocks tracking after onboarding.</p>
+      <a class="store-link" href="https://apps.apple.com/us/app/regime-daily-habit-tracker/id6805791943?pt=94745319&amp;ct=landing&amp;mt=8">
+        <img src="assets/app-store-badge.svg" width="120" height="40" alt="Download on the App Store">
+      </a>
+      <p class="hero-note">Free download with in-app purchases. 7-day free trial on the yearly plan ($29.99/yr).</p>
     </section>
   </main>
 
   <footer>
     <div class="wrap">
-      <p>REGIME: Daily Habit Tracker · Seller Ilias Aberkane · Bundle com.iliasaberkane.regime</p>
-      <p><a href="https://apps.apple.com/us/app/regime-daily-habit-tracker/id6805791943?pt=94745319&amp;ct=landing&amp;mt=8">App Store</a> · <a href="../">Privacy</a> · <a href="../#support">Support</a> · <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Apple Standard EULA</a></p>
-      <p>Canonical: <a href="https://regime.is-a.dev/">https://regime.is-a.dev/</a></p>
+      <nav aria-label="Footer">
+        <a href="../">Privacy &amp; Support</a>
+        <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms of Use (Apple EULA)</a>
+        <a href="mailto:petfaildaily@gmail.com">petfaildaily@gmail.com</a>
+        <a href="https://apps.apple.com/us/app/regime-daily-habit-tracker/id6805791943?pt=94745319&amp;ct=landing&amp;mt=8">App Store</a>
+      </nav>
+      <p>© 2026 Ilias Aberkane · REGIME: Daily Habit Tracker · App Store id 6805791943</p>
+      <div class="fazier-badge"><a href="https://fazier.com" target="_blank"><img src="https://fazier.com/api/v1//public/badges/launch_badges.svg?badge_type=launched&theme=dark" width=120 alt="Fazier badge" /></a></div>
     </div>
   </footer>
 </body>
