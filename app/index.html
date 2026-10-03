@@ -14,22 +14,28 @@
   <meta property="og:description" content="Never break the chain. Daily non-negotiables, hard streak, eight ranks, weekly review. On your iPhone.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://iliasabk.github.io/regime-legal/app/">
-  <meta property="og:image" content="https://iliasabk.github.io/regime-legal/app/assets/og-image.png">
+  <meta property="og:site_name" content="REGIME: Daily Habit Tracker">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:image" content="https://iliasabk.github.io/regime-legal/app/assets/og-image.jpg">
+  <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="REGIME on iPhone: Never break the chain, with the daily checklist.">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="REGIME: Daily Habit Tracker">
   <meta name="twitter:description" content="Never break the chain. One checklist, hard streak, 8 ranks, weekly review.">
-  <meta name="twitter:image" content="https://iliasabk.github.io/regime-legal/app/assets/og-image.png">
+  <meta name="twitter:image" content="https://iliasabk.github.io/regime-legal/app/assets/og-image.jpg">
+  <link rel="icon" href="/regime-legal/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
   <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+  <link rel="preload" as="image" imagesrcset="assets/screenshot-01-chain.webp 390w, assets/screenshot-01-chain-520.webp 520w, assets/screenshot-01-chain@2x.webp 780w" imagesizes="(min-width: 768px) 300px, 280px" type="image/webp" fetchpriority="high">
   <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "MobileApplication",
   "name": "REGIME: Daily Habit Tracker",
   "alternateName": "REGIME",
-  "description": "Stop rebuilding Monday. One checklist of non-negotiables. Hard streak: miss a day and the streak dies. Ranks earned. On-device, no account, no feed. A subscription or lifetime purchase is required after onboarding.",
+  "description": "Stop rebuilding Monday. One checklist of non-negotiables. Hard streak: miss a day and the streak dies. Ranks earned. On-device, no account, no feed. Optional Pro plans: weekly, yearly (7-day free trial) or lifetime.",
   "operatingSystem": "iOS",
   "applicationCategory": "LifestyleApplication",
   "applicationSubCategory": "Habit Tracker",
@@ -63,7 +69,7 @@
       "url": "https://apps.apple.com/us/app/regime-daily-habit-tracker/id6805791943?pt=94745319&ct=landing&mt=8",
       "availability": "https://schema.org/InStock",
       "category": "Subscription",
-      "description": "Includes free trial when Apple shows an eligible introductory offer. Cancel in Apple Account settings."
+      "description": "7-day trial on the yearly plan. Only the yearly plan has a trial."
     },
     {
       "@type": "Offer",
@@ -81,10 +87,19 @@
     "Ranks earned from consistency",
     "On-device storage, no account required",
     "No social feed",
-    "Optional morning and evening reminders"
+    "Optional morning and evening reminders",
+    "Weekly review of the last seven days",
+    "Share a completed-day milestone",
+    "Hold a habit to check it off",
+    "DAY COMPLETE stamp when every non-negotiable is done"
   ],
-  "screenshot": [],
-  "isAccessibleForFree": false,
+  "screenshot": [
+    "https://iliasabk.github.io/regime-legal/app/assets/screenshot-01-chain.png",
+    "https://iliasabk.github.io/regime-legal/app/assets/screenshot-02-progress.png",
+    "https://iliasabk.github.io/regime-legal/app/assets/screenshot-04-day-complete.png"
+  ],
+  "image": "https://iliasabk.github.io/regime-legal/app/assets/icon-512.png",
+  "isAccessibleForFree": true,
   "countriesSupported": "US"
 }
   </script>
@@ -95,9 +110,9 @@
       --bg-elevated: #141416;
       --ink: #f5f5f5;
       --muted: #a8a8ad;
-      --dim: #6e6e73;
+      --dim: #8e8e93;
       --line: #2a2a2e;
-      --accent: #e3272e;
+      --accent: #ee5a5a;
       --max: 72rem;
     }
     *, *::before, *::after { box-sizing: border-box; }
@@ -290,8 +305,8 @@
       <div class="feature-shot wrap">
         <div class="phone-frame">
           <picture>
-            <source type="image/webp" srcset="assets/screenshot-01-chain.webp 390w, assets/screenshot-01-chain@2x.webp 780w" sizes="280px">
-            <img src="assets/screenshot-01-chain.png" srcset="assets/screenshot-01-chain.png 390w, assets/screenshot-01-chain@2x.png 780w" sizes="280px" width="390" height="847" alt="REGIME Today view with streak counter and daily checklist" loading="lazy" decoding="async">
+            <source type="image/webp" srcset="assets/screenshot-01-chain.webp 390w, assets/screenshot-01-chain-520.webp 520w, assets/screenshot-01-chain@2x.webp 780w" sizes="(min-width: 768px) 300px, 280px">
+            <img src="assets/screenshot-01-chain.png" srcset="assets/screenshot-01-chain.png 390w, assets/screenshot-01-chain@2x.png 780w" sizes="(min-width: 768px) 300px, 280px" width="390" height="847" alt="REGIME Today view with the chain and the daily checklist" decoding="async" fetchpriority="high">
           </picture>
         </div>
       </div>
@@ -306,8 +321,8 @@
       <div class="feature-shot wrap">
         <div class="phone-frame">
           <picture>
-            <source type="image/webp" srcset="assets/screenshot-02-progress.webp 390w, assets/screenshot-02-progress@2x.webp 780w" sizes="280px">
-            <img src="assets/screenshot-02-progress.png" srcset="assets/screenshot-02-progress.png 390w, assets/screenshot-02-progress@2x.png 780w" sizes="280px" width="390" height="847" alt="REGIME rank ladder with eight earned ranks" loading="lazy" decoding="async">
+            <source type="image/webp" srcset="assets/screenshot-02-progress.webp 390w, assets/screenshot-02-progress-520.webp 520w, assets/screenshot-02-progress@2x.webp 780w" sizes="(min-width: 768px) 300px, 280px">
+            <img src="assets/screenshot-02-progress.png" srcset="assets/screenshot-02-progress.png 390w, assets/screenshot-02-progress@2x.png 780w" sizes="(min-width: 768px) 300px, 280px" width="390" height="847" alt="REGIME rank ladder with eight earned ranks" loading="lazy" decoding="async">
           </picture>
         </div>
       </div>
@@ -316,14 +331,14 @@
     <section class="feature" aria-labelledby="f3-title">
       <div class="feature-copy wrap">
         <p class="feature-kicker">03</p>
-        <h2 id="f3-title">Review your week</h2>
-        <p>See what slipped. Fix it next week. A seven-day grid of your check-ins — your history, not a social scoreboard.</p>
+        <h2 id="f3-title">Finish the day</h2>
+        <p>When the checklist is done, the day counts. Share a completed-day milestone only if you want to. The weekly review shows recorded check-ins for the last seven days, so you can see the pattern and choose the next goal.</p>
       </div>
       <div class="feature-shot wrap">
         <div class="phone-frame">
           <picture>
-            <source type="image/webp" srcset="assets/screenshot-04-day-complete.webp 390w, assets/screenshot-04-day-complete@2x.webp 780w" sizes="280px">
-            <img src="assets/screenshot-04-day-complete.png" srcset="assets/screenshot-04-day-complete.png 390w, assets/screenshot-04-day-complete@2x.png 780w" sizes="280px" width="390" height="847" alt="REGIME weekly review with seven-day habit grid" loading="lazy" decoding="async">
+            <source type="image/webp" srcset="assets/screenshot-04-day-complete.webp 390w, assets/screenshot-04-day-complete-520.webp 520w, assets/screenshot-04-day-complete@2x.webp 780w" sizes="(min-width: 768px) 300px, 280px">
+            <img src="assets/screenshot-04-day-complete.png" srcset="assets/screenshot-04-day-complete.png 390w, assets/screenshot-04-day-complete@2x.png 780w" sizes="(min-width: 768px) 300px, 280px" width="390" height="847" alt="REGIME day complete screen with a share button after the checklist is finished" loading="lazy" decoding="async">
           </picture>
         </div>
       </div>
@@ -331,7 +346,7 @@
 
     <section class="pricing wrap" aria-labelledby="pricing-title">
       <h2 id="pricing-title">Built for iPhone &amp; iPad</h2>
-      <p>Stop rebuilding your routine every Monday. Pick habits, add your own, optional reminders — no account, no feed. Habit entries stay on your device. Subscription or lifetime purchase unlocks tracking after onboarding.</p>
+      <p>Stop rebuilding your routine every Monday. Pick habits, add your own, and set optional reminders. No account. No feed. Habit entries stay on your device. Hold a habit to check it off. When every non-negotiable is done, the day gets a DAY COMPLETE stamp, and you can share that milestone if you want. Optional Pro plans: weekly, yearly (7-day free trial) or lifetime. Weekly is $4.99, yearly is $29.99, and lifetime is $49.99.</p>
       <a class="store-link" href="https://apps.apple.com/us/app/regime-daily-habit-tracker/id6805791943?pt=94745319&amp;ct=landing&amp;mt=8">
         <img src="assets/app-store-badge.svg" width="120" height="40" alt="Download on the App Store">
       </a>
@@ -346,9 +361,15 @@
         <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/">Terms of Use (Apple EULA)</a>
         <a href="mailto:petfaildaily@gmail.com">petfaildaily@gmail.com</a>
         <a href="https://apps.apple.com/us/app/regime-daily-habit-tracker/id6805791943?pt=94745319&amp;ct=landing&amp;mt=8">App Store</a>
+        <a href="../why-hard-streak/">Why hard streak</a>
+        <a href="../vs-soft-habit-apps/">vs soft habit apps</a>
+        <a href="../75-hard-tracker/">75 Hard tracker</a>
+        <a href="../habit-tracker-streaks/">Streak chain</a>
+        <a href="../habitica-alternative/">Habitica alternative</a>
+        <a href="../streaks-app-alternative/">Streaks alternative</a>
       </nav>
       <p>© 2026 Ilias Aberkane · REGIME: Daily Habit Tracker · App Store id 6805791943</p>
-      <div class="fazier-badge"><a href="https://fazier.com" target="_blank"><img src="https://fazier.com/api/v1//public/badges/launch_badges.svg?badge_type=launched&theme=dark" width=120 alt="Fazier badge" /></a></div>
+      <div class="fazier-badge"><a href="https://fazier.com" target="_blank"><img src="https://fazier.com/api/v1//public/badges/launch_badges.svg?badge_type=launched&theme=dark" width="120" height="51" alt="Fazier badge" loading="lazy" decoding="async"></a></div>
     </div>
   </footer>
 </body>
