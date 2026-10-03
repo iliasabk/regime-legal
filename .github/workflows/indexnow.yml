@@ -1,0 +1,118 @@
+name: IndexNow
+
+on:
+  push:
+    branches:
+      - master
+  workflow_dispatch:
+
+concurrency:
+  group: indexnow
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  submit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Wait for Pages, then submit the sitemap
+        env:
+          HOST: iliasabk.github.io
+          SITE: https://iliasabk.github.io/regime-legal
+        run: |
+          set -euo pipefail
+
+          key_file="$(find . -maxdepth 1 -regextype posix-extended -regex './[0-9a-f]{32}\.txt' -printf '%f\n' | head -n 1)"
+          if [ -z "${key_file}" ]; then
+            echo "No 32-character hex key file at the repo root."
+            exit 1
+          fi
+          key="${key_file%.txt}"
+          file_key="$(tr -d '[:space:]' < "${key_file}")"
+          if [ "${file_key}" != "${key}" ]; then
+            echo "Key file contents do not match the file name."
+            exit 1
+          fi
+
+          key_url="${SITE}/${key}.txt"
+          echo "Waiting until Pages serves ${key_url}."
+          origin_ready=0
+          for attempt in $(seq 1 40); do
+            code="$(curl -sS -o /tmp/indexnow-key.txt -w '%{http_code}' \
+              -H 'Cache-Control: no-cache' \
+              -H 'Pragma: no-cache' \
+              "${key_url}?cb=${attempt}-$(date +%s)" || true)"
+            body="$(tr -d '[:space:]' < /tmp/indexnow-key.txt || true)"
+            echo "origin attempt ${attempt}: ${code}"
+            if [ "${code}" = "200" ] && [ "${body}" = "${key}" ]; then
+              origin_ready=1
+              break
+            fi
+            sleep 15
+          done
+          if [ "${origin_ready}" != "1" ]; then
+            echo "Key file was not reachable at ${key_url} before the timeout."
+            exit 1
+          fi
+
+          bare_ready=0
+          for attempt in $(seq 1 40); do
+            bare_code="$(curl -sS -o /tmp/indexnow-key-bare.txt -w '%{http_code}' \
+              -H 'Cache-Control: no-cache' \
+              -H 'Pragma: no-cache' \
+              "${key_url}" || true)"
+            bare_body="$(tr -d '[:space:]' < /tmp/indexnow-key-bare.txt || true)"
+            echo "bare attempt ${attempt}: ${bare_code}"
+            if [ "${bare_code}" = "200" ] && [ "${bare_body}" = "${key}" ]; then
+              bare_ready=1
+              break
+            fi
+            sleep 15
+          done
+          if [ "${bare_ready}" != "1" ]; then
+            echo "Key file URL did not return the key without a query string."
+            exit 1
+          fi
+
+          python3 - "${key}" "${HOST}" "${key_url}" sitemap.xml > /tmp/indexnow.json << 'PY'
+          import json
+          import sys
+          import xml.etree.ElementTree as ET
+
+          key, host, key_location, sitemap = sys.argv[1:5]
+          ns = {"sm": "http://www.sitemaps.org/schemas/sitemap/0.9"}
+          root = ET.parse(sitemap).getroot()
+          urls = []
+          for loc in root.findall("sm:url/sm:loc", ns):
+              if loc.text and loc.text.strip():
+                  urls.append(loc.text.strip())
+          if not urls:
+              raise SystemExit("sitemap.xml has no URLs")
+          json.dump(
+              {
+                  "host": host,
+                  "key": key,
+                  "keyLocation": key_location,
+                  "urlList": urls,
+              },
+              sys.stdout,
+          )
+          PY
+
+          echo "Submitting $(python3 -c 'import json; print(len(json.load(open("/tmp/indexnow.json"))["urlList"]))') URLs."
+          http_code="$(curl -sS -o /tmp/indexnow-body.txt -w '%{http_code}' \
+            -X POST 'https://api.indexnow.org/indexnow' \
+            -H 'Content-Type: application/json; charset=utf-8' \
+            --data-binary @/tmp/indexnow.json)"
+          echo "IndexNow HTTP response: ${http_code}"
+          if [ -s /tmp/indexnow-body.txt ]; then
+            cat /tmp/indexnow-body.txt
+            echo
+          fi
+          if [ "${http_code}" != "200" ] && [ "${http_code}" != "202" ]; then
+            exit 1
+          fi
